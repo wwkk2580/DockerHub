@@ -15,8 +15,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        # 拉取复刻仓库的代码
         repository: ${{ github.repository }}
+
+    # 设置 Git 用户信息
+    - name: Set Git user
+      run: |
+        git config --global user.name "GitHub Action"
+        git config --global user.email "action@github.com"
 
     # 拉取主仓库的代码
     - name: Add Upstream
